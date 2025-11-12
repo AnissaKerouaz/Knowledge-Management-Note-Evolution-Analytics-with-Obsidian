@@ -19,7 +19,9 @@ def main():
     #converting notes to a dataframe
     df = pd.DataFrame(notes)
     #saving output as a csv
-    df.to_csv("data/raw/extracted_notes.csv", index=False)
+    output_dir = Path("data/raw")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    df.to_csv(output_dir / "extracted_notes.csv", index=False)
     print(f"{len(df)} notes have been saved")
 
 if __name__ == "__main__":
